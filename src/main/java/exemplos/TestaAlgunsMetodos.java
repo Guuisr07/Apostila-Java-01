@@ -3,7 +3,7 @@ package exemplos;
 public class TestaAlgunsMetodos {
     public static void main(String[] args) {
         //Criando a conta
-        Conta minhaConta;
+        /*Conta minhaConta;
         minhaConta = new Conta();
 
         //Alterando valores da conta
@@ -15,7 +15,12 @@ public class TestaAlgunsMetodos {
 
         //Deposita 200
         minhaConta.deposita(500);
-        System.out.println(minhaConta.saldo);
+        System.out.println(minhaConta.saldo);*/
 
+        //Criando um cliente
+        Conta minhaConta = new Conta();
+        Cliente c = new Cliente();
+        minhaConta.titular = c;
+        System.out.println(c);
     }
 }

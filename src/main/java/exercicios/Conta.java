@@ -2,16 +2,19 @@ package exercicios;
 
 public class Conta {
     private String nome;
-    String agencia;
-    int numero;
+    private String agencia;
+    private int numero;
     private double saldo;
+    private static int totalDeContas;       //Declarando static para ele nao ser so mais um atributo do objeto, mas sim da classe inteira
     double rendimento;
     Data dataDeAbertura;
-    String titular;
 
     //Criando o construtor
     Conta(){
-        System.out.println("-|Construindo uma conta|-");
+        Conta.totalDeContas = Conta.totalDeContas + 1;
+    }
+    Conta(String nome) {
+        this.nome = nome;
     }
 
     /*Construtor com o titular da conta
@@ -19,10 +22,31 @@ public class Conta {
         this.titular = titular;
     }*/
 
+    //Criando um metodo get para poder acessar a informacao do total de contas em outra classe
+    public static int getTotalDeContas(){
+        return Conta.totalDeContas;
+    }
+
     //Setando valores nos atributos
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getNome(){
+        return this.nome;
+    }
+
+    public void setAgencia(String agencia){
+        this.agencia = agencia;
+    }
+    public String getAgencia(){
+        return this.agencia;
+    }
+
+    public void setNumero(int numero){
+        this.numero = numero;
+    }
+
 
     public void saca(double quantidade){
         if( quantidade > this.saldo){
@@ -50,7 +74,7 @@ public class Conta {
        this.rendimento = saldo * 0.1;
     }
 
-   public  String recuperarDadosParaImpressao(){
+   /*public  String recuperarDadosParaImpressao(){
         String dados = "Titular: " + this.nome;
         dados += "\nNumero: " + this.numero;
         dados += "\nAgencia: " + this.agencia;
@@ -58,7 +82,7 @@ public class Conta {
         dados += "\n----- Data de Abertura da conta -----\n\t\t";
         dados += this.dataDeAbertura.formatada();
         return dados;
-    }
+    }*/
 }
 
 

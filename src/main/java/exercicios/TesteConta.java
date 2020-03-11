@@ -5,17 +5,28 @@ public class TesteConta {
         //criando uma nova conta
         Conta c1 = new Conta();
         c1.setNome("Guilherme");
-        c1.agencia = "4567-7";
-        c1.numero = 564;
+        c1.setAgencia("4567-7");
+        c1.setNumero(564);
 
         Conta c2 = new Conta();
         c2.setNome("Guilherme");
+
+        String guilherme = "Guilherme";
+        Conta c3 = new Conta(guilherme);
+
 
         Data d1 = new Data();
         c1.dataDeAbertura = d1;
         d1.dia = 02;
         d1.mes = 04;
         d1.ano = 2020;
+
+        System.out.println(c1.getNome());
+        System.out.println(c1.getAgencia());
+
+        //Para saber quantas contas foram criadas
+        int total = Conta.getTotalDeContas();
+        System.out.println(total);
 
         c1.deposita(-30);
         System.out.println("Saldo:" + c1.pegaSaldo());
@@ -26,7 +37,7 @@ public class TesteConta {
             System.out.println("Dados diferentes das contas");
         }
 
-        System.out.println(c1.recuperarDadosParaImpressao());
+        /*System.out.println(c1.recuperarDadosParaImpressao());*/
     }
 
 
